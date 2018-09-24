@@ -1,0 +1,21 @@
+#container{
+  margin:0;
+
+}
+
+
+#gameBoard{
+  margin: auto;
+  border: 1px solid red;
+  max-width: 80%;
+
+}
+
+.square{
+  width:32.5%;
+  border: 1px solid blue;
+  display: inline-block;
+  height: 30px;
+  padding:0;
+  margin:0;
+}
