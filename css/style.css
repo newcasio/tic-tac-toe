@@ -3,11 +3,26 @@
 
 }
 
+h1{
+  text-align: center;
+}
+
+#scoreboard{
+  margin: auto;
+  /* display: inline-block; */
+  border: 1px solid yellow;
+}
+
+.score{
+  display: inline-block;
+  width: 15%;
+  border: 1px solid green;
+}
 
 #gameBoard{
   margin: auto;
   border: 1px solid red;
-  max-width: 60%;
+  max-width: 47%;
 
 }
 
@@ -27,4 +42,24 @@ img{
   height: 20px;
   width: 20px;
   vertical-align:middle;
+}
+
+#endOfGame{
+  height:600px;
+  width: 600px;
+  margin: auto;
+  position: absolute;
+  z-index: 1;
+  border: 1px solid purple;
+  text-align: center;
+  background-color: purple;
+  display:none;
+}
+
+#endPic{
+  height: 220px;
+  width: 220px;
+  position: relative;
+  z-index: 2;
+  margin:auto;
 }
