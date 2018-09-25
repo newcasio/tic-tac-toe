@@ -1,14 +1,16 @@
-let endPic = "<img id='endPic' src='https://media.giphy.com/media/l0GRkpk8mcWhekrVC/giphy.gif'>"
 let currentPlayer='Player 1';
 let currentPosition= undefined;
 
-let board = [0,1,2,3,4,5,6,7,8];
+let player1ScoreDisplay = 0;
+$('#player1Score').text(player1ScoreDisplay);
 
-// const winningCombos = [
-//   [0,1,2],[3,4,5],[6,7,8],
-//   [0,3,6],[1,4,7],[2,5,8],
-//   [0,4,8],[2,4,6]
-// ];
+let player2ScoreDisplay = 0;
+$('#player2Score').text(player2ScoreDisplay);
+
+
+let endPic = "<img id='endPic' src='https://media.giphy.com/media/l0GRkpk8mcWhekrVC/giphy.gif'>"
+
+let board = [0,1,2,3,4,5,6,7,8];
 
 const turn = function(position, player){
   if (board[position]==='x'||board[position]=='o'){
@@ -29,35 +31,47 @@ const turn = function(position, player){
 const playerSwitch = function(){
   if (currentPlayer ==='Player 1'){
     currentPlayer='Player 2';
+    $('#leftSelect').css('visibility', 'hidden');
+    $('#rightSelect').css('visibility', 'visible');
   }else{
     currentPlayer='Player 1';
+    $('#leftSelect').css('visibility', 'visible');
+    $('#rightSelect').css('visibility', 'hidden');
   }
 };
 
 const checkForMatch = function(n){
   if (board[0]===board[1] && board[1]===board[2]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   }else if (board[3]===board[4] && board[4]===board[5]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   }else if (board[6]===board[7] && board[7]===board[8]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   }else if (board[0]===board[3] && board[3]===board[6]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   }else if(board[1]===board[4] && board[4]===board[7]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   }else if(board[2]===board[5] && board[5]===board[8]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   }else if(board[0]===board[4] && board[4]===board[8]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   }else if(board[2]===board[4] && board[4]===board[6]){
     alert (`Winner is ${n}`);
+    addWinnerScore(n);
     endOfGame();
   };
 };
@@ -68,6 +82,15 @@ const endOfGame = function(){
 
 const resetGame = function(){
   board = [0,1,2,3,4,5,6,7,8];
-  currentPlayer = 'Player 1';
-  $('.square').empty();  
+  $('.square').empty();
+}
+
+const addWinnerScore = function(n){
+  if (n==='Player 1'){
+    player1ScoreDisplay++;
+    $('#player1Score').text(player1ScoreDisplay);
+  }else{
+    player2ScoreDisplay++;
+    $('#player2Score').text(player2ScoreDisplay);
+  }
 }

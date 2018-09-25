@@ -1,5 +1,5 @@
 #container{
-  margin:0;
+  margin:0 auto;
 
 }
 
@@ -8,9 +8,17 @@ h1{
 }
 
 #scoreboard{
-  margin: auto;
+  width: 47%;
+  /* position: relative; */
+  margin: 0 auto;
+  text-align: center;
   /* display: inline-block; */
   border: 1px solid yellow;
+}
+
+#scoreGroup{
+  position: relative;
+  margin: auto;
 }
 
 .score{
@@ -23,7 +31,10 @@ h1{
   margin: auto;
   border: 1px solid red;
   max-width: 47%;
+}
 
+#rightSelect{
+  visibility: hidden;
 }
 
 .square{
@@ -62,4 +73,9 @@ img{
   position: relative;
   z-index: 2;
   margin:auto;
+}
+
+.arrows{
+  height: 60px;
+  width: 60px;
 }

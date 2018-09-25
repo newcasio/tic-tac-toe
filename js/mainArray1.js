@@ -46,5 +46,4 @@ $(document).ready(function(){
     $('#endOfGame').append(endPic);
   });
 
-
 });  //end document ready
