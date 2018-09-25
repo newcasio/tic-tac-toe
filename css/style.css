@@ -1,10 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+
 #container{
-  margin:0 auto;
+  margin:0 ;
+}
+
+body{
+  background-color: orange;
+  font-family: 'Source Code Pro', monospace;
 
 }
 
 h1{
   text-align: center;
+  font-size: 60px;
+}
+
+div{
+  margin:0;
+  padding:0;
 }
 
 #scoreboard{
@@ -13,7 +27,7 @@ h1{
   margin: 0 auto;
   text-align: center;
   /* display: inline-block; */
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 }
 
 #scoreGroup{
@@ -23,27 +37,41 @@ h1{
 
 .score{
   display: inline-block;
-  width: 15%;
-  border: 1px solid green;
+  width: 22%;
+  /* border: 1px solid green; */
 }
 
 #gameBoard{
   margin: auto;
-  border: 1px solid red;
-  max-width: 47%;
+  /* border: 1px solid red; */
+  max-width: 47vw;
+  background-color: black;
+  border-collapse: separate;
+  border-spacing: 0.2vw;
+  /* line-height: 0px */
 }
 
 #rightSelect{
   visibility: hidden;
 }
 
-.square{
-  width:15vw;
-  border: 1px solid blue;
-  display: inline-block;
+#boom{
   height: 15vw;
+  width: 15vw;
+}
+
+.square{
+  /* width:14vw; */
+  width:15vw;
+  margin: 0 auto;
+  /* line-height: 14vw; */
+  /* border: 1px solid blue; */
+  z-index: 10;
+  background-color: white;
+  display: inline-block;
+  height: 14vw;
   padding:0;
-  margin:0;
+  margin:0.09vw;
 }
 
 img{
@@ -60,6 +88,7 @@ img{
   width: 600px;
   margin: auto;
   position: absolute;
+  left:420px;
   z-index: 1;
   border: 1px solid purple;
   text-align: center;
@@ -78,4 +107,14 @@ img{
 .arrows{
   height: 60px;
   width: 60px;
+  padding-bottom: 35px;
+}
+
+
+
+
+.oorx{
+  height:8vw;
+  width: 8vw;
+  padding-top: 40px;
 }

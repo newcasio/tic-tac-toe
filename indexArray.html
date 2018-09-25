@@ -31,28 +31,44 @@
       <div class='score' id="rightSelect"><img class="arrows"  src="images/turn2.png" alt=""></div>
     </div>
 
-    <div id="gameBoard">
-      <div id="endOfGame">
-        <h4>End of game</h4>
-        <h5>Do you want to play again?</h5>
-        <button id="playAgain">Yes</button>
-        <button id ="noPlayAgain">No</button>
-      </div>
+    <div id="endOfGame">
+      <h4>End of game</h4>
+      <h5>Do you want to play again?</h5>
+      <button id="playAgain">Yes</button>
+      <button id ="noPlayAgain">No</button>
+    </div>
 
-      <div class="square" id="box0">0</div>
-      <div class="square" id="box1">1</div>
-      <div class="square" id="box2">2</div>
-      <div class="square" id="box3">3</div>
-      <div class="square" id="box4">4</div>
-      <div class="square" id="box5">5</div>
-      <div class="square" id="box6">6</div>
-      <div class="square" id="box7">7</div>
-      <div class="square" id="box8">8</div>
-    </div>  <!--end of gameBoard div-->
+    <table id="gameBoard">
+      <tr>
+        <td class="square" id="box0"></td>
+        <td class="square" id="box1"></td>
+        <td class="square" id="box2"></td>
+      </tr>
+      <tr>
+        <td class="square" id="box3"></td>
+        <td class="square" id="box4"></td>
+        <td class="square" id="box5"></td>
+      </tr>
+      <tr>
+      <td class="square" id="box6"></td>
+      <td class="square" id="box7"></td>
+      <td class="square" id="box8"></td>
+      </tr>
+    </table>  <!--end of gameBoard div-->
+
+
 
   </div>  <!--end of container div-->
   <script src="js/jquery.js"></script>
   <script src="js/mainArray.js"></script>
   <script src="js/mainArray1.js"></script>
+
+  <div id="names">
+    <h2>Welcome to Tic-Tac-Toe</h2>
+    <h4>Players enter your names</h4>
+    <input id="name1" type="text" placeholder="Player 1">
+    <input id="name2" type="text" placeholder="Player 2">
+    <button id="beginButton">Begin!</button>
+  </div>
 </body>
 </html>
