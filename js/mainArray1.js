@@ -37,14 +37,26 @@ $(document).ready(function(){
     turn(8,currentPlayer);
   });
 
-  $('#playAgain').on('click', function(){
+  $('.playAgain').on('click', function(){
+    console.log('reset');
     resetGame();
-    $('#endOfGame').css('display', 'none');
+    $('#winWindow').css('display','none');
+    $('#drawWindow').css('display','none');
   });
 
-  $('#noPlayAgain').on('click', function(){
-    $('#endOfGame').append(endPic);
-    $('#noPlayAgain').off();
+  $('.noPlayAgain').on('click', function(){
+    $('body').css('opacity', 0);
+    $('body').css('z-index', 100);
+    setTimeout(function () {
+      window.location.href='http://google.com';
+    }, 2000);
   });
+
+  $('#beginButton').on('click', function(){
+    currentPlayer = $('#name1').val();
+    $('#name1Display').text($('#name1').val());
+    $('#name2Display').text($('#name2').val());
+    $('#names').css('display', 'none');
+  })
 
 });  //end document ready

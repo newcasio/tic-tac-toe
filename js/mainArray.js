@@ -1,7 +1,5 @@
-let $name1 = $('#name1');
-let $name2 = $('#name2');
 
-let currentPlayer= $name1;
+let currentPlayer = undefined;
 let currentPosition= undefined;
 
 turnCount = 0;
@@ -12,9 +10,6 @@ $('#player1Score').text(player1ScoreDisplay);
 let player2ScoreDisplay = 0;
 $('#player2Score').text(player2ScoreDisplay);
 
-
-let endPic = "<img id='endPic' src='https://media.giphy.com/media/l0GRkpk8mcWhekrVC/giphy.gif'>"
-
 let board = [0,1,2,3,4,5,6,7,8];
 
 const turn = function(position, player){
@@ -22,14 +17,11 @@ const turn = function(position, player){
     alert('Square taken, please choose again');
     return;
   }
-  if (currentPlayer === 'Player 1'){
+  if (currentPlayer === $('#name1').val()){
     board[position]='x';
-    //currnetPosition.append('<img id="boom" src="images/explosion.gif" alt="">');
     currentPosition.append('<img class="oorx" src="images/xImage.png" />');
   }else{
     board[position]='o';
-    //currentPosition.append('<img id="boom" src="images/explosion.gif" alt="">');
-    //<img id="boom" src="images/explosion.gif" alt="">
     currentPosition.append('<img class="oorx" src="images/oImage.png" />');
   }
   turnCount++;
@@ -38,12 +30,12 @@ const turn = function(position, player){
 }
 
 const playerSwitch = function(){
-  if (currentPlayer ==='Player 1'){
-    currentPlayer='Player 2';
+  if (currentPlayer === $('#name1').val()){
+    currentPlayer = $('#name2').val();
     $('#leftSelect').css('visibility', 'hidden');
     $('#rightSelect').css('visibility', 'visible');
   }else{
-    currentPlayer='Player 1';
+    currentPlayer = $('#name1').val();
     $('#leftSelect').css('visibility', 'visible');
     $('#rightSelect').css('visibility', 'hidden');
   }
@@ -51,56 +43,64 @@ const playerSwitch = function(){
 
 const checkForMatch = function(n){
   if (board[0]===board[1] && board[1]===board[2]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    // endOfGame();
     return
   }else if (board[3]===board[4] && board[4]===board[5]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    // endOfGame();
     return
   }else if (board[6]===board[7] && board[7]===board[8]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    // endOfGame();
     return
   }else if (board[0]===board[3] && board[3]===board[6]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    // endOfGame();
     return
   }else if(board[1]===board[4] && board[4]===board[7]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    // endOfGame();
     return
   }else if(board[2]===board[5] && board[5]===board[8]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    //endOfGame();
     return
   }else if(board[0]===board[4] && board[4]===board[8]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    //endOfGame();
     return
   }else if(board[2]===board[4] && board[4]===board[6]){
-    alert (`Winner is ${n}`);
+    gameWin(n);
     addWinnerScore(n);
-    endOfGame();
+    //endOfGame();
     return;
   };
   if(turnCount===9){
-    console.log('check0293485720439587230985302');
-    alert ("DRAW!!");
-    endOfGame();
+    gameDraw();
+    //endOfGame();
   }
 };
 
-const endOfGame = function(){
-  $('#endOfGame').css('display', 'inline');
-};
+const gameWin = function(name){
+  $('#placeWinnersName').text(`${name}`);
+  $('#winWindow').fadeIn("slow");
+}
+
+const gameDraw = function(){
+  $('#drawWindow').fadeIn("slow");
+}
+
+// const endOfGame = function(){
+//   $('#endOfGame').css('display', 'inline');
+// };
 
 const resetGame = function(){
   board = [0,1,2,3,4,5,6,7,8];
@@ -109,7 +109,7 @@ const resetGame = function(){
 }
 
 const addWinnerScore = function(n){
-  if (n==='Player 1'){
+  if (n===$('#name1')){
     player1ScoreDisplay++;
     $('#player1Score').text(player1ScoreDisplay);
   }else{
