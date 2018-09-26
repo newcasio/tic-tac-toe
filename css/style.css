@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 @import url('https://fonts.googleapis.com/css?family=Black+Ops+One');
@@ -119,7 +121,6 @@ img{
   /* left: 430px; */
 }
 
-
 .oorx{
   height:8vw;
   width: 8vw;
@@ -196,3 +197,9 @@ h5{
 .buttons{
   text-align: center;
 }
+
+/* #explosion{
+  position: relative;
+  height: 100%;
+  width:100%; */
+} */

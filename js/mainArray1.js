@@ -3,12 +3,15 @@ $(document).ready(function(){
   $('#scoreboard').hide();
   $('tbody').hide();
 
-
   $('.square').on('click', function(){
+    // console.log(this);
+    // console.log((this.id));
     turn( parseInt(this.id), currentPlayer );
     if (board[this.id]==='x'){
+      // $(this).append(explosion);
       $(this).append('<img class="oorx" src="images/xImage.png" />');
     }else{
+      // $(this).append(explosion);
       $(this).append('<img class="oorx" src="images/oImage.png" />');
     }
   })
@@ -50,4 +53,6 @@ $(document).ready(function(){
   })
 
 
+
+  // const explosion = '<img id="explosion" src="images/explosion1.gif"/>'
 });  //end document ready
