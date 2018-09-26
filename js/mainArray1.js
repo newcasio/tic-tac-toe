@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
+  $('#scoreboard').hide();
   $('tbody').hide();
-  $('#container').hide();
 
   $('#box0').on('click', function(){
     currentPosition = $('#box0');
@@ -57,8 +57,14 @@ $(document).ready(function(){
 
 
   $('#beginButton').on('click', function(){
+    if($('#name1').val()===""){
+      $('#name1').attr('value', 'Player 1');
+    };
+    if($('#name2').val()===""){
+      $('#name2').attr('value', 'Player 2');
+    };
+    $('#scoreboard').show();
     $('tbody').show();
-    $('container').show();
     $('#name1Display').text($('#name1').val());
     $('#name2Display').text($('#name2').val());
     currentPlayer = $('#name1').val();
