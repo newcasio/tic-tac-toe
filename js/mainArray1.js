@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  $('tbody').hide();
+  $('#container').hide();
+
   $('#box0').on('click', function(){
     currentPosition = $('#box0');
     turn(0,currentPlayer);
@@ -49,14 +52,18 @@ $(document).ready(function(){
     $('body').css('z-index', 100);
     setTimeout(function () {
       window.location.href='http://google.com';
-    }, 2000);
+    }, 1500);
   });
 
+
   $('#beginButton').on('click', function(){
-    currentPlayer = $('#name1').val();
+    $('tbody').show();
+    $('container').show();
     $('#name1Display').text($('#name1').val());
     $('#name2Display').text($('#name2').val());
+    currentPlayer = $('#name1').val();
     $('#names').css('display', 'none');
   })
+
 
 });  //end document ready

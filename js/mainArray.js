@@ -45,47 +45,38 @@ const checkForMatch = function(n){
   if (board[0]===board[1] && board[1]===board[2]){
     gameWin(n);
     addWinnerScore(n);
-    // endOfGame();
     return
   }else if (board[3]===board[4] && board[4]===board[5]){
     gameWin(n);
     addWinnerScore(n);
-    // endOfGame();
     return
   }else if (board[6]===board[7] && board[7]===board[8]){
     gameWin(n);
     addWinnerScore(n);
-    // endOfGame();
     return
   }else if (board[0]===board[3] && board[3]===board[6]){
     gameWin(n);
     addWinnerScore(n);
-    // endOfGame();
     return
   }else if(board[1]===board[4] && board[4]===board[7]){
     gameWin(n);
     addWinnerScore(n);
-    // endOfGame();
     return
   }else if(board[2]===board[5] && board[5]===board[8]){
     gameWin(n);
     addWinnerScore(n);
-    //endOfGame();
     return
   }else if(board[0]===board[4] && board[4]===board[8]){
     gameWin(n);
     addWinnerScore(n);
-    //endOfGame();
     return
   }else if(board[2]===board[4] && board[4]===board[6]){
     gameWin(n);
     addWinnerScore(n);
-    //endOfGame();
     return;
   };
   if(turnCount===9){
     gameDraw();
-    //endOfGame();
   }
 };
 
@@ -97,10 +88,6 @@ const gameWin = function(name){
 const gameDraw = function(){
   $('#drawWindow').fadeIn("slow");
 }
-
-// const endOfGame = function(){
-//   $('#endOfGame').css('display', 'inline');
-// };
 
 const resetGame = function(){
   board = [0,1,2,3,4,5,6,7,8];

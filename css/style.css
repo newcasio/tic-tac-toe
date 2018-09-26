@@ -58,17 +58,9 @@ div{
   visibility: hidden;
 }
 
-#boom{
-  height: 15vw;
-  width: 15vw;
-}
-
 .square{
-  /* width:14vw; */
   width:15vw;
   margin: 0 auto;
-  /* line-height: 14vw; */
-  /* border: 1px solid blue; */
   z-index: 10;
   background-color: white;
   display: inline-block;
