@@ -9,7 +9,11 @@ $(document).ready(function(){
     turn( parseInt(this.id), currentPlayer );
     if (board[this.id]==='x'){
       // $(this).append(explosion);
-      $(this).append('<img class="oorx" src="images/xImage.png" />');
+      $(this).append('<img class="oorx" src="images/explosion1.gif" />');
+      setTimeout(
+      function(){
+        $('.square img').attr("src", "images/xImage.png")
+      }  , 2000)
     }else{
       // $(this).append(explosion);
       $(this).append('<img class="oorx" src="images/oImage.png" />');
@@ -54,5 +58,5 @@ $(document).ready(function(){
 
 
 
-  // const explosion = '<img id="explosion" src="images/explosion1.gif"/>'
+  const explosion = '<img id="explosion" src="images/explosion1.gif"/>'
 });  //end document ready
