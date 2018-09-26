@@ -19,10 +19,8 @@ const turn = function(position, player){
   }
   if (currentPlayer === $('#name1').val()){
     board[position]='x';
-    currentPosition.append('<img class="oorx" src="images/xImage.png" />');
   }else{
     board[position]='o';
-    currentPosition.append('<img class="oorx" src="images/oImage.png" />');
   }
   turnCount++;
   checkForMatch(currentPlayer);
