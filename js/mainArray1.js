@@ -63,6 +63,11 @@ $(document).ready(function(){
     if($('#name2').val()===""){
       $('#name2').attr('value', 'Player 2');
     };
+    if($('#name1').val()===$('#name2').val()){
+      alert("Usernames cannot be identical");
+      location. reload(true);
+      return;
+    };
     $('#scoreboard').show();
     $('tbody').show();
     $('#name1Display').text($('#name1').val());
