@@ -10,7 +10,7 @@ $(document).ready(function(){
   let clickX;
   let clickY;
 
-  let gunshot = new Audio('images/gunshotsoundeffect.mp3');
+  let gunshot = new Audio('images/hadouken.mp3');
   let lasershot = new Audio('images/lasergunsoundeffect.mp3');
   // $('#container').on('mousemove', function(event){
   //   console.log(`X is:${event.clientX}`);
@@ -21,55 +21,59 @@ $(document).ready(function(){
   //   // console.log(this);
   //   // console.log((this.id));
   //
-  clickX = event.pageX;
-  clickY = event.pageY-180;
-
-  if (currentPlayer===$('#name1').val()){
-    $('#gunLeft').attr('src', $('#gunLeft').attr('src') + '?' + Math.random());
-    gunshot.play();
-    $('#gunLeft').load();
-    $('#bullet1').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
-      $('#bullet1').css('left', '5%');
-      $('#bullet1').css('top', '650px');
-    });
-  }else{
-    $('#laserRight').attr('src', $('#laserRight').attr('src') + '?' + Math.random());
-    lasershot.play();
-    $('#bullet2').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
-      $('#bullet2').css('left', '90%');
-      $('#bullet2').css('top', '650px');
-    });
-  };
+    clickX = event.pageX;
+    clickY = event.pageY-180;
 
 
-
-    // $('#bullet1').css('left', '5%');
-    // $('#bullet1').css('top', '650px');
-
-    // $('#bullet1').animate( {left: 5%, top: 650px} ,0)
-
-
-
-    turn( parseInt(this.id), currentPlayer );
-    if (board[this.id]==='x'){
-      $(this).append('<img class="oorx" src="images/xImage.png" />');
-      // $(this).append('<img id="explosion" class="oorx" src="images/explosion1.gif" />');
-      // setTimeout(
-      // function(){
-      //   $('.square img').attr("src", "images/xImage.png")
-      // }  , 2000)
-      //$('#0 img').attr("src", "images/xImage.png")}  , 2000)
+    if (currentPlayer===$('#name1').val()){
+      $('#gunLeft').attr('src', $('#gunLeft').attr('src') + '?' + Math.random());
+      setTimeout(function(){
+        gunshot.play();
+        $('#gunLeft').load();
+        $('#bullet1').animate({left: `${clickX}px`, top: `${clickY}px`},1600, function(){
+          $('#bullet1').css('left', '5%');
+          $('#bullet1').css('top', '650px');
+        })
+      },2000);
     }else{
-      $(this).append('<img class="oorx" src="images/oImage.png" />');
-      // $(this).append('<img id="explosion" class="oorx" src="images/explosion1.gif" />');
-      // $(this).append('<img class="oorx" src="images/explosion1.gif" />');
-      // setTimeout(
-      // function(){
-      //   $('#explosion').css('display', 'none')
-      // }  , 1500)
-      // $(this).append(explosion);
-    }
-  })
+      $('#laserRight').attr('src', $('#laserRight').attr('src') + '?' + Math.random());
+      lasershot.play();
+      $('#bullet2').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
+        $('#bullet2').css('left', '90%');
+        $('#bullet2').css('top', '650px');
+      });
+    };
+
+
+
+  // $('#bullet1').css('left', '5%');
+  // $('#bullet1').css('top', '650px');
+
+  // $('#bullet1').animate( {left: 5%, top: 650px} ,0)
+
+
+
+  turn( parseInt(this.id), currentPlayer );
+  if (board[this.id]==='x'){
+    $(this).append('<img class="oorx" src="images/xImage.png" />');
+    // $(this).append('<img id="explosion" class="oorx" src="images/explosion1.gif" />');
+    // setTimeout(
+    // function(){
+    //   $('.square img').attr("src", "images/xImage.png")
+    // }  , 2000)
+    //$('#0 img').attr("src", "images/xImage.png")}  , 2000)
+  }else{
+    $(this).append('<img class="oorx" src="images/oImage.png" />');
+    // $(this).append('<img id="explosion" class="oorx" src="images/explosion1.gif" />');
+    // $(this).append('<img class="oorx" src="images/explosion1.gif" />');
+    // setTimeout(
+    // function(){
+    //   $('#explosion').css('display', 'none')
+    // }  , 1500)
+    // $(this).append(explosion);
+  }
+
+});
 
   $('.playAgain').on('click', function(){
     resetGame();

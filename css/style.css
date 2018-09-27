@@ -216,8 +216,12 @@ h5{
 #bullet1{
   position: relative;
   display: inline-block;
+  width:35px;
+  height: 35px;
+  border-radius: 50%;
   left: 5%;
   top:   650px;
+  background-color: #4AB8F7;
 }
 
 #bullet2{
@@ -225,14 +229,16 @@ h5{
   display: inline-block;
   left: 90%;
   top: 650px;
+  border-radius: 50%;
+  background-color: #64C132;
 }
 
 #gunLeft{
-  width:180px;
+  width:280px;
   height: 180px;
   position:absolute;
-  left:20px;
-  top: 730px;
+  left:-40px;
+  top: 800px;
   z-index: 2;
 }
 
@@ -241,6 +247,7 @@ h5{
   height: 180px;
   positon: relative;
   z-index: 2;
+  display: inline-block;
   left:380px;
   top: 730px;
 }
