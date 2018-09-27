@@ -56,18 +56,16 @@ $(document).ready(function(){
       // $('#bullet1').animate( {left: 5%, top: 650px} ,0)
 
 
-      console.log(parseInt(this.id));
       turn( parseInt(this.id), currentPlayer );
       if (board[this.id]==='x'){
-        // $(this).append('<img class="oorx" src="images/xImage.png" />');
+
         $(this).append(`<img id="explosion${this.id}" class="oorx" src="images/explosion1.gif" />`);
         let imageId = this.id
-        console.log(imageId);
         setTimeout(
-        function(){
-          $(`img#explosion${imageId}`).attr("src", "images/xImage.png")
-        }, 2000);
-        //$('#0 img').attr("src", "images/xImage.png")}  , 2000)
+          function(){
+            $(`img#explosion${imageId}`).attr("src", "images/xImage.png")
+          }, 2000);
+
       }else{
         // $(this).append('<img class="oorx" src="images/oImage.png" />');
         $(this).append(`<img id="explosion${this.id}" class="oorx" src="images/explosion1.gif" />`);
@@ -79,7 +77,7 @@ $(document).ready(function(){
           }  , 2000)
         // $(this).append(explosion);
       } //end of turn function
-    }
+    }//end of if square not taken
 
 
 }); //end of click event
