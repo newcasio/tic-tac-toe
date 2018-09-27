@@ -10,6 +10,7 @@ $(document).ready(function(){
   let clickX;
   let clickY;
 
+  let explosionSound = new Audio('images/explosion.mp3');
   let gunshot = new Audio('images/hadouken.mp3');
   let lasershot = new Audio('images/lasergunsoundeffect.mp3');
   // $('#container').on('mousemove', function(event){
@@ -58,16 +59,21 @@ $(document).ready(function(){
 
       turn( parseInt(this.id), currentPlayer );
       if (board[this.id]==='x'){
-
-        $(this).append(`<img id="explosion${this.id}" class="oorx" src="images/explosion1.gif" />`);
-        let imageId = this.id
-        setTimeout(
-          function(){
-            $(`img#explosion${imageId}`).attr("src", "images/xImage.png")
-          }, 2000);
+        let thisId = this.id;
+        let currentSquare = $('.square')[parseInt(this.id)];
+        setTimeout(function(){
+          explosionSound.play();
+          $(currentSquare).append(`<img id="explosion${thisId}" class="oorx" src="images/explosion1.gif" />`);
+          let imageId = thisId;
+          setTimeout(
+            function(){
+              $(`img#explosion${imageId}`).attr("src", "images/xImage.png")
+            }, 2000);
+        },3200);
 
       }else{
         // $(this).append('<img class="oorx" src="images/oImage.png" />');
+        explosionSound.play();
         $(this).append(`<img id="explosion${this.id}" class="oorx" src="images/explosion1.gif" />`);
         let imageId = this.id
         // $(this).append('<img class="oorx" src="images/explosion1.gif" />');
