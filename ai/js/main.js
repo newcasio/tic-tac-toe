@@ -5,15 +5,16 @@ let count =0;
 let random = Math.floor(Math.random()*9);
 
 const turn = function(player, position){
-  if (board[position]==='x' || board[position]==='o'){
-    alert ('Square taken, choose again');
-    return;
+  if(count===9){
+    alert('Draw');
+    return
   }else{
-    if (player ==='human'){
+    if (board[position]==='x' || board[position]==='o'){
+      alert ('Square taken, choose again');
+      return;
+    }else{
       board[position]='x';
       count++;
-    }else{
-
       computersTurn();
     }
   }

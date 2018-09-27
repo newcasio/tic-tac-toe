@@ -43,31 +43,31 @@ const checkForMatch = function(n){
   if (board[0]===board[1] && board[1]===board[2]){
     gameWin(n);
     addWinnerScore(n);
-    return
+    return;
   }else if (board[3]===board[4] && board[4]===board[5]){
     gameWin(n);
     addWinnerScore(n);
-    return
+    return;
   }else if (board[6]===board[7] && board[7]===board[8]){
     gameWin(n);
     addWinnerScore(n);
-    return
+    return;
   }else if (board[0]===board[3] && board[3]===board[6]){
     gameWin(n);
     addWinnerScore(n);
-    return
+    return;
   }else if(board[1]===board[4] && board[4]===board[7]){
     gameWin(n);
     addWinnerScore(n);
-    return
+    return;
   }else if(board[2]===board[5] && board[5]===board[8]){
     gameWin(n);
     addWinnerScore(n);
-    return
+    return;
   }else if(board[0]===board[4] && board[4]===board[8]){
     gameWin(n);
     addWinnerScore(n);
-    return
+    return;
   }else if(board[2]===board[4] && board[4]===board[6]){
     gameWin(n);
     addWinnerScore(n);
@@ -82,8 +82,23 @@ const gameWin = function(name){
   $('#placeWinnersName').text(`${name}`);
   $('#winWindow').fadeIn("slow");
   setTimeout(function(){
-    var msg = new SpeechSynthesisUtterance(`${name} is a weener`);
-    window.speechSynthesis.speak(msg);
+    // var msg = new SpeechSynthesisUtterance(`${name} is a weener`);
+    // window.speechSynthesis.speak(msg);
+    var msg = new SpeechSynthesisUtterance();
+var voices = window.speechSynthesis.getVoices();
+msg.voice = voices[9]; // Note: some voices don't support altering params
+msg.voiceURI = 'native';
+msg.volume = 1; // 0 to 1
+msg.rate = 1; // 0.1 to 10
+msg.pitch = 2; //0 to 2
+msg.text = 'Hello World';
+msg.lang = 'en-US';
+
+msg.onend = function(e) {
+  console.log('Finished in ' + event.elapsedTime + ' seconds.');
+};
+
+speechSynthesis.speak(msg);
   },1000)
 }
 
