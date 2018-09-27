@@ -42,7 +42,7 @@ $(document).ready(function(){
         $('#bullet2').css('left', '90%');
         $('#bullet2').css('top', '650px');
       });
-    };
+    }; //end of animation       
 
 
 
@@ -71,9 +71,9 @@ $(document).ready(function(){
     //   $('#explosion').css('display', 'none')
     // }  , 1500)
     // $(this).append(explosion);
-  }
+  } //end of turn function
 
-});
+}); //end of click event
 
   $('.playAgain').on('click', function(){
     resetGame();
