@@ -12,4 +12,7 @@ If players click their turns before animations complete, animations get messed u
 
 Explosion occurs before laser/fireball reaches square.
 
+
+### Credits
+
 Big credits to Luke and Linna.
