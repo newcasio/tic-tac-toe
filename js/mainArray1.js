@@ -17,10 +17,20 @@ $(document).ready(function(){
   //   // console.log(this);
   //   // console.log((this.id));
   //
-    clickX = event.pageX;
-    clickY = event.pageY-180;
+  clickX = event.pageX;
+  clickY = event.pageY-180;
+
+  if (currentPlayer===$('#name1').val()){
     $('#bullet1').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
+      $('#bullet1').css('left', '5%');
+      $('#bullet1').css('top', '650px');
     });
+  }else{
+    $('#bullet2').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
+      $('#bullet2').css('left', '90%');
+      $('#bullet2').css('top', '650px');
+    });
+  };
 
 
 
