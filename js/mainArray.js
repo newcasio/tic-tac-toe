@@ -13,10 +13,10 @@ $('#player2Score').text(player2ScoreDisplay);
 let board = [0,1,2,3,4,5,6,7,8];
 
 const turn = function(position, player){
-  if (board[position]==='x'||board[position]=='o'){
-    alert('Square taken, please choose again');
-    return;
-  }
+  // if (board[position]==='x'||board[position]=='o'){
+  //   alert('Square taken, please choose again');
+  //   return;
+  // }
   if (currentPlayer === $('#name1').val()){
     board[position]='x';
   }else{
