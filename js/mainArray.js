@@ -81,6 +81,10 @@ const checkForMatch = function(n){
 const gameWin = function(name){
   $('#placeWinnersName').text(`${name}`);
   $('#winWindow').fadeIn("slow");
+  setTimeout(function(){
+    var msg = new SpeechSynthesisUtterance(`${name} is a weener`);
+    window.speechSynthesis.speak(msg);
+  },1000)
 }
 
 const gameDraw = function(){
@@ -94,7 +98,7 @@ const resetGame = function(){
 }
 
 const addWinnerScore = function(n){
-  if (n===$('#name1')){
+  if (n === $('#name1').val()){
     player1ScoreDisplay++;
     $('#player1Score').text(player1ScoreDisplay);
   }else{

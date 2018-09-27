@@ -1,0 +1,255 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One');
+
+
+
+#container{
+  margin:0 ;
+}
+
+body{
+  background-color: orange;
+  font-family: 'Source Code Pro', monospace;
+  opacity: 1;
+}
+
+h1{
+  text-align: center;
+  font-size: 60px;
+}
+
+div{
+  margin:0;
+  padding:0;
+}
+
+#scoreboard{
+  width: 47%;
+  /* position: relative; */
+  margin: 0 auto;
+  text-align: center;
+  /* display: inline-block; */
+  /* border: 1px solid yellow; */
+}
+
+#scoreGroup{
+  position: relative;
+  margin: auto;
+}
+
+.score{
+  display: inline-block;
+  width: 22%;
+  /* border: 1px solid green; */
+}
+
+#gameBoard{
+  margin: auto;
+  /* border: 1px solid red; */
+  max-width: 47vw;
+  background-color: black;
+  border-collapse: separate;
+  border-spacing: 0.2vw;
+  /* line-height: 0px */
+}
+
+#rightSelect{
+  visibility: hidden;
+}
+
+.square{
+  width:15vw;
+  margin: 0 auto;
+  z-index: 10;
+  background-color: white;
+  display: inline-block;
+  height: 14vw;
+  padding:0;
+  margin:0.09vw;
+}
+
+img{
+  display: block;
+  margin: auto;
+  padding: auto;
+  height: 20px;
+  width: 20px;
+  vertical-align:middle;
+}
+
+#endOfGame{
+  height:600px;
+  width: 600px;
+  margin: auto;
+  position: absolute;
+  left:420px;
+  z-index: 1;
+  border: 1px solid purple;
+  text-align: center;
+  background-color: purple;
+  display:none;
+}
+
+#endPic{
+  height: 220px;
+  width: 220px;
+  position: relative;
+  z-index: 2;
+  margin:auto;
+}
+
+.arrows{
+  height: 60px;
+  width: 60px;
+  padding-bottom: 35px;
+}
+
+#names{
+  /* display: none; */
+  border: 3px solid black;
+  text-align: center;
+  width:40%;
+  margin: auto;
+  height: 300px;
+  background-color: yellow;
+  z-index: 5;
+  position: relative;
+  /* top: 120px; */
+  /* left: 430px; */
+}
+
+.oorx{
+  height:8vw;
+  width: 8vw;
+  padding-top: 40px;
+}
+
+#beginButton{
+  display: block;
+  margin:40px auto;
+}
+
+#winWindow{
+  display: none;
+  border: 1px solid green;
+  background-color: grey;
+  height: 600px;
+  width:40%;
+  margin: auto;
+  z-index: 5;
+  position: absolute;
+  top: 304px;
+  left: 430px;
+  font-family: 'Black Ops One', cursive;
+}
+
+#placeWinnersName{
+  margin: auto;
+  text-align: center;
+  font-size: 40px;
+  padding-top:80px;
+  font-size: 100px;
+}
+
+#winnerText{
+  padding-top: 50px;
+  margin: auto;
+  text-align: center;
+  font-size:35px;
+}
+
+#drawWindow{
+  display: none;
+  border: 1px solid green;
+  background-color: grey;
+  height: 600px;
+  width:40%;
+  margin: auto;
+  z-index: 5;
+  position: absolute;
+  top: 304px;
+  left: 430px;
+}
+
+#drawText{
+  padding-top: 50px;
+  margin: auto;
+  text-align: center;
+  font-family: 'Black Ops One', cursive;
+  font-size: 70px;
+}
+
+#drawPic{
+  width: 15vw;
+  height:15vw;
+}
+
+h5{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Black Ops One', cursive;
+
+}
+
+.buttons{
+  text-align: center;
+}
+
+#explosion{
+  position: relative;
+  height: 100%;
+  width:100%;
+}
+
+
+.bullet{
+  width:20px;
+  height:20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+
+#bullet1{
+  position: relative;
+  display: inline-block;
+  width:35px;
+  height: 35px;
+  border-radius: 50%;
+  left: 5%;
+  top:   650px;
+  background-color: #4AB8F7;
+}
+
+#bullet2{
+  position: relative;
+  display: inline-block;
+  left: 90%;
+  top: 650px;
+  width:35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #64C132;
+}
+
+#gunLeft{
+  width:280px;
+  height: 180px;
+  position:absolute;
+  left:-40px;
+  top: 800px;
+  z-index: 2;
+}
+
+#laserRight{
+  width:160px;
+  height: 160px;
+  position:absolute;
+  z-index: -2;
+  display: inline-block;
+  right: 15px;
+  top: 800px;
+}
