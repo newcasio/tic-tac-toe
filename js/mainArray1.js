@@ -2,26 +2,57 @@ $(document).ready(function(){
 
   $('#scoreboard').hide();
   $('tbody').hide();
+  $('#bullet1').hide();
+  $('#bullet2').hide();
 
-  $('.square').on('click', function(){
-    // console.log(this);
-    // console.log((this.id));
+  let clickX;
+  let clickY;
+
+  // $('#container').on('mousemove', function(event){
+  //   console.log(`X is:${event.clientX}`);
+  //   console.log(`Y is:${event.clientY}`);
+  // });
+
+  $('.square').on('click', function(event){
+  //   // console.log(this);
+  //   // console.log((this.id));
+  //
+    clickX = event.pageX;
+    clickY = event.pageY-180;
+    $('#bullet1').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
+    });
+
+
+
+    // $('#bullet1').css('left', '5%');
+    // $('#bullet1').css('top', '650px');
+
+    // $('#bullet1').animate( {left: 5%, top: 650px} ,0)
+
+
+
     turn( parseInt(this.id), currentPlayer );
     if (board[this.id]==='x'){
-      // $(this).append(explosion);
-      $(this).append('<img class="oorx" src="images/explosion1.gif" />');
-      setTimeout(
-      function(){
-        $('.square img').attr("src", "images/xImage.png")
-      }  , 2000)
+      $(this).append('<img class="oorx" src="images/xImage.png" />');
+      // $(this).append('<img id="explosion" class="oorx" src="images/explosion1.gif" />');
+      // setTimeout(
+      // function(){
+      //   $('.square img').attr("src", "images/xImage.png")
+      // }  , 2000)
+      //$('#0 img').attr("src", "images/xImage.png")}  , 2000)
     }else{
-      // $(this).append(explosion);
       $(this).append('<img class="oorx" src="images/oImage.png" />');
+      // $(this).append('<img id="explosion" class="oorx" src="images/explosion1.gif" />');
+      // $(this).append('<img class="oorx" src="images/explosion1.gif" />');
+      // setTimeout(
+      // function(){
+      //   $('#explosion').css('display', 'none')
+      // }  , 1500)
+      // $(this).append(explosion);
     }
   })
 
   $('.playAgain').on('click', function(){
-    console.log('reset');
     resetGame();
     $('#winWindow').css('display','none');
     $('#drawWindow').css('display','none');
@@ -37,6 +68,9 @@ $(document).ready(function(){
 
 
   $('#beginButton').on('click', function(){
+    $('#bullet1').show();
+    $('#bullet2').show();
+
     if($('#name1').val()===""){
       $('#name1').attr('value', 'Player 1');
     };
@@ -56,7 +90,14 @@ $(document).ready(function(){
     $('#names').css('display', 'none');
   })
 
-
-
   const explosion = '<img id="explosion" src="images/explosion1.gif"/>'
+
+  // let shootStart ={
+  //   leftX:,
+  //   leftY:,
+  //   rightX:,
+  //   rightY:
+  // }
+
+
 });  //end document ready

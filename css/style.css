@@ -203,3 +203,26 @@ h5{
   height: 100%;
   width:100%;
 }
+
+
+.bullet{
+  width:20px;
+  height:20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+
+#bullet1{
+  position: relative;
+  display: inline-block;
+  left: 5%;
+  top:   650px;
+}
+
+#bullet2{
+  position: relative;
+  display: inline-block;
+  left: 90%;
+  top: 650px;
+}
