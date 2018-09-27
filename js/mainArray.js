@@ -5,19 +5,16 @@ let currentPosition= undefined;
 turnCount = 0;
 
 let player1ScoreDisplay = 0;
-$('#player1Score').text(player1ScoreDisplay);
+$('#player1Score').text(player1ScoreDisplay);   //print score to scoreboard
 
 let player2ScoreDisplay = 0;
-$('#player2Score').text(player2ScoreDisplay);
+$('#player2Score').text(player2ScoreDisplay);     //print score to scoreboard
 
 let board = [0,1,2,3,4,5,6,7,8];
 
 const turn = function(position, player){
-  // if (board[position]==='x'||board[position]=='o'){
-  //   alert('Square taken, please choose again');
-  //   return;
-  // }
-  if (currentPlayer === $('#name1').val()){
+
+  if (currentPlayer === $('#name1').val()){     //if player 1 place x, player 2 place o in board array
     board[position]='x';
   }else{
     board[position]='o';
@@ -99,10 +96,9 @@ const checkForMatch = function(n){
 const gameWin = function(name){
   $('#placeWinnersName').text(`${name}`);
   $('#winWindow').fadeIn("slow");
-  setTimeout(function(){
+  setTimeout(function(){      //delay speech of winner's name
     var msg = new SpeechSynthesisUtterance(`${name} is a weeener`);
     window.speechSynthesis.speak(msg);
-
   },1000)
 }
 
@@ -112,12 +108,12 @@ const gameDraw = function(){
 
 const resetGame = function(){
   board = [0,1,2,3,4,5,6,7,8];
-  $('.square').empty();
+  $('.square').empty();     //clear graphics from squares
   turnCount=0;
 }
 
 const addWinnerScore = function(n){
-  if (n === $('#name1').val()){
+  if (n === $('#name1').val()){   //depending on who wins, add 1, refresh scoreboard display
     player1ScoreDisplay++;
     $('#player1Score').text(player1ScoreDisplay);
   }else{

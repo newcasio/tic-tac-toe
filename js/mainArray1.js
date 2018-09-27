@@ -1,29 +1,23 @@
 $(document).ready(function(){
 
-  $('#scoreboard').hide();
+  $('#scoreboard').hide();    //hide all windows except for enter name window
   $('tbody').hide();
   $('#bullet1').hide();
   $('#bullet2').hide();
   $('#gunLeft').hide();
   $('#laserRight').hide();
 
-  let clickX;
-  let clickY;
-
-  let explosionSound = new Audio('images/explosion.mp3');
-  let gunshot = new Audio('images/hadouken.mp3');
-  let lasershot = new Audio('images/lasergunsoundeffect.mp3');
-  // $('#container').on('mousemove', function(event){
-  //   console.log(`X is:${event.clientX}`);
-  //   console.log(`Y is:${event.clientY}`);
-  // });
+  const explosionSound = new Audio('images/explosion.mp3');
+  const gunshot = new Audio('images/hadouken.mp3');
+  const lasershot = new Audio('images/lasergunsoundeffect.mp3');
+  const explosion = '<img id="explosion" src="images/explosion1.gif"/>'
 
   $('.square').on('click', function(event){
   //   // console.log(this);
   //   // console.log((this.id));
   //
-    clickX = event.pageX;
-    clickY = event.pageY-180;
+    let clickX = event.pageX;     //click event, record co-ordinates of mouse click
+    let clickY = event.pageY-180;
 
     if (board[this.id]==='x'||board[this.id]=='o'){
       alert('Square taken, please choose again');
@@ -31,12 +25,12 @@ $(document).ready(function(){
     }else{
 
       if (currentPlayer===$('#name1').val()){
-        $('#gunLeft').attr('src', $('#gunLeft').attr('src') + '?' + Math.random());
+        $('#gunLeft').attr('src', $('#gunLeft').attr('src') + '?' + Math.random());   //play gif animation, reload with ?randomnumber at end
         setTimeout(function(){
           gunshot.play();
           $('#gunLeft').load();
-          $('#bullet1').animate({left: `${clickX}px`, top: `${clickY}px`},1600, function(){
-            $('#bullet1').css('left', '5%');
+          $('#bullet1').animate({left: `${clickX}px`, top: `${clickY}px`},1600, function(){     //move bullet from init position to mouse click
+            $('#bullet1').css('left', '5%');  //return bullet to starting position
             $('#bullet1').css('top', '650px');
           })
         },2000);
@@ -49,42 +43,30 @@ $(document).ready(function(){
         });
       }; //end of animation
 
-
-
-      // $('#bullet1').css('left', '5%');
-      // $('#bullet1').css('top', '650px');
-
-      // $('#bullet1').animate( {left: 5%, top: 650px} ,0)
-
-
       turn( parseInt(this.id), currentPlayer );
       if (board[this.id]==='x'){
         let thisId = this.id;
         let currentSquare = $('.square')[parseInt(this.id)];
         setTimeout(function(){
           explosionSound.play();
-          $(currentSquare).append(`<img id="explosion${thisId}" class="oorx" src="images/explosion1.gif" />`);
+          $(currentSquare).append(`<img id="explosion${thisId}" class="oorx" src="images/explosion1.gif" />`);  //insert img tag into current tag/square
           let imageId = thisId;
           setTimeout(
             function(){
-              $(`img#explosion${imageId}`).attr("src", "images/xImage.png")
+              $(`img#explosion${imageId}`).attr("src", "images/xImage.png")  //replace img src with marker image src
             }, 2000);
         },3200);
 
       }else{
-        // $(this).append('<img class="oorx" src="images/oImage.png" />');
         explosionSound.play();
         $(this).append(`<img id="explosion${this.id}" class="oorx" src="images/explosion1.gif" />`);
         let imageId = this.id
-        // $(this).append('<img class="oorx" src="images/explosion1.gif" />');
         setTimeout(
           function(){
             $(`img#explosion${imageId}`).attr("src", "images/oImage.png")
           }  , 2000)
-        // $(this).append(explosion);
       } //end of turn function
     }//end of if square not taken
-
 
 }); //end of click event
 
@@ -99,18 +81,18 @@ $(document).ready(function(){
     $('body').css('z-index', 100);
     setTimeout(function () {
       window.location.href='http://google.com';
-    }, 700);
+    }, 900);
   });
 
 
   $('#beginButton').on('click', function(){
     $('#bullet1').show();
-    $('#bullet2').show();
+    $('#bullet2').show();   //show board and side animations
     $('#gunLeft').show();
     $('#laserRight').show();
 
     if($('#name1').val()===""){
-      $('#name1').attr('value', 'Player 1');
+      $('#name1').attr('value', 'Player 1');    //if no name entered, defaults entered
     };
     if($('#name2').val()===""){
       $('#name2').attr('value', 'Player 2');
@@ -127,15 +109,5 @@ $(document).ready(function(){
     currentPlayer = $('#name1').val();
     $('#names').css('display', 'none');
   })
-
-  const explosion = '<img id="explosion" src="images/explosion1.gif"/>'
-
-  // let shootStart ={
-  //   leftX:,
-  //   leftY:,
-  //   rightX:,
-  //   rightY:
-  // }
-
 
 });  //end document ready
