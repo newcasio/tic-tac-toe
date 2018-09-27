@@ -4,10 +4,14 @@ $(document).ready(function(){
   $('tbody').hide();
   $('#bullet1').hide();
   $('#bullet2').hide();
+  $('#gunLeft').hide();
+  $('#laserRight').hide();
 
   let clickX;
   let clickY;
 
+  let gunshot = new Audio('images/gunshotsoundeffect.mp3');
+  let lasershot = new Audio('images/lasergunsoundeffect.mp3');
   // $('#container').on('mousemove', function(event){
   //   console.log(`X is:${event.clientX}`);
   //   console.log(`Y is:${event.clientY}`);
@@ -21,11 +25,16 @@ $(document).ready(function(){
   clickY = event.pageY-180;
 
   if (currentPlayer===$('#name1').val()){
+    $('#gunLeft').attr('src', $('#gunLeft').attr('src') + '?' + Math.random());
+    gunshot.play();
+    $('#gunLeft').load();
     $('#bullet1').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
       $('#bullet1').css('left', '5%');
       $('#bullet1').css('top', '650px');
     });
   }else{
+    $('#laserRight').attr('src', $('#laserRight').attr('src') + '?' + Math.random());
+    lasershot.play();
     $('#bullet2').animate({left: `${clickX}px`, top: `${clickY}px`},800, function(){
       $('#bullet2').css('left', '90%');
       $('#bullet2').css('top', '650px');
@@ -80,6 +89,8 @@ $(document).ready(function(){
   $('#beginButton').on('click', function(){
     $('#bullet1').show();
     $('#bullet2').show();
+    $('#gunLeft').show();
+    $('#laserRight').show();
 
     if($('#name1').val()===""){
       $('#name1').attr('value', 'Player 1');

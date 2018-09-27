@@ -226,3 +226,21 @@ h5{
   left: 90%;
   top: 650px;
 }
+
+#gunLeft{
+  width:180px;
+  height: 180px;
+  position:absolute;
+  left:20px;
+  top: 730px;
+  z-index: 2;
+}
+
+#laserRight{
+  width:180px;
+  height: 180px;
+  positon: relative;
+  z-index: 2;
+  left:380px;
+  top: 730px;
+}
