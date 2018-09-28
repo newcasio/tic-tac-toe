@@ -2,7 +2,9 @@
 let currentPlayer = undefined;
 let currentPosition= undefined;
 
-turnCount = 0;
+let turnCount = 0;
+
+let winner = "";
 
 let player1ScoreDisplay = 0;
 $('#player1Score').text(player1ScoreDisplay);   //print score to scoreboard
@@ -41,52 +43,60 @@ const checkForMatch = function(n){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner = n;
     }, 3000);
+    return;
   }else if (board[3]===board[4] && board[4]===board[5]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner =n;
     },3000);
+    return;
   }else if (board[6]===board[7] && board[7]===board[8]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner =n;
     },3000);
+    return;
   }else if (board[0]===board[3] && board[3]===board[6]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner =n;
     },3000);
+    return;
   }else if(board[1]===board[4] && board[4]===board[7]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner =n;
     },3000);
+    return;
   }else if(board[2]===board[5] && board[5]===board[8]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner =n;
     },3000);
+    return;
   }else if(board[0]===board[4] && board[4]===board[8]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner =n;
     },3000);
+    return;
   }else if(board[2]===board[4] && board[4]===board[6]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
-      return;
+      winner =n;
     },3000);
+    return;
   };
-  if(turnCount===9){
+  if(turnCount===9 && winner === ""){
     setTimeout(function(){
       gameDraw();
     },3000);
@@ -104,12 +114,17 @@ const gameWin = function(name){
 
 const gameDraw = function(){
   $('#drawWindow').fadeIn("slow");
+  setTimeout(function(){      //delay speech of winner's name
+    var msg = new SpeechSynthesisUtterance(`This game is a DRAW!`);
+    window.speechSynthesis.speak(msg);
+  },1000)
 }
 
 const resetGame = function(){
   board = [0,1,2,3,4,5,6,7,8];
   $('.square').empty();     //clear graphics from squares
   turnCount=0;
+  winner = "";
 }
 
 const addWinnerScore = function(n){
