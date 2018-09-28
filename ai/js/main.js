@@ -5,16 +5,16 @@ let count =0;
 let random = Math.floor(Math.random()*9);
 
 const turn = function(player, position){
-  if(count===9){
-    alert('Draw');
-    return
+  if (board[position]==='x' || board[position]==='o'){
+    alert ('Square taken, choose again');
+    return;
   }else{
-    if (board[position]==='x' || board[position]==='o'){
-      alert ('Square taken, choose again');
+    board[position]='x';
+    count++;
+    if(count===9){
+      alert('Draw!');
       return;
     }else{
-      board[position]='x';
-      count++;
       computersTurn();
     }
   }
@@ -38,10 +38,22 @@ const computersTurn = function(){
   }
 }
 
-
-const draw = function(){
-  if (count ===9){
-    alert('Draw');
-    return;
+const checkForMatch = function(n){
+  if (board[0]===board[1] && board[1]===board[2]){
+    console.log('Winner');
+  }else if (board[3]===board[4] && board[4]===board[5]){
+    console.log('Winner');
+  }else if (board[6]===board[7] && board[7]===board[8]){
+    console.log('Winner');
+  }else if (board[0]===board[3] && board[3]===board[6]){
+    console.log('Winner');
+  }else if(board[1]===board[4] && board[4]===board[7]){
+    console.log('Winner');
+  }else if(board[2]===board[5] && board[5]===board[8]){
+    console.log('Winner');
+  }else if(board[0]===board[4] && board[4]===board[8]){
+    console.log('Winner');
+  }else if(board[2]===board[4] && board[4]===board[6]){
+    console.log('Winner');
   }
-}
+};
