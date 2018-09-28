@@ -38,62 +38,20 @@ const playerSwitch = function(){
   }
 };
 
-const checkForMatch = function(n){
-  if (board[0]===board[1] && board[1]===board[2]){
+const checkForMatch = function(n){      //n is the current player
+  if(board[0]===board[1] && board[1]===board[2] ||    //row checks
+  board[3]===board[4] && board[4]===board[5] ||
+  board[6]===board[7] && board[7]===board[8] ||
+  board[0]===board[3] && board[3]===board[6] ||   //column checks
+  board[1]===board[4] && board[4]===board[7] ||
+  board[2]===board[5] && board[5]===board[8] ||
+  board[0]===board[4] && board[4]===board[8] ||   //diagonal checks
+  board[2]===board[4] && board[4]===board[6]){
     setTimeout(function(){
       gameWin(n);
       addWinnerScore(n);
       winner = n;
     }, 3000);
-    return;
-  }else if (board[3]===board[4] && board[4]===board[5]){
-    setTimeout(function(){
-      gameWin(n);
-      addWinnerScore(n);
-      winner =n;
-    },3000);
-    return;
-  }else if (board[6]===board[7] && board[7]===board[8]){
-    setTimeout(function(){
-      gameWin(n);
-      addWinnerScore(n);
-      winner =n;
-    },3000);
-    return;
-  }else if (board[0]===board[3] && board[3]===board[6]){
-    setTimeout(function(){
-      gameWin(n);
-      addWinnerScore(n);
-      winner =n;
-    },3000);
-    return;
-  }else if(board[1]===board[4] && board[4]===board[7]){
-    setTimeout(function(){
-      gameWin(n);
-      addWinnerScore(n);
-      winner =n;
-    },3000);
-    return;
-  }else if(board[2]===board[5] && board[5]===board[8]){
-    setTimeout(function(){
-      gameWin(n);
-      addWinnerScore(n);
-      winner =n;
-    },3000);
-    return;
-  }else if(board[0]===board[4] && board[4]===board[8]){
-    setTimeout(function(){
-      gameWin(n);
-      addWinnerScore(n);
-      winner =n;
-    },3000);
-    return;
-  }else if(board[2]===board[4] && board[4]===board[6]){
-    setTimeout(function(){
-      gameWin(n);
-      addWinnerScore(n);
-      winner =n;
-    },3000);
     return;
   };
   if(turnCount===9 && winner === ""){
@@ -102,6 +60,72 @@ const checkForMatch = function(n){
     },3000);
   }
 };
+
+
+// const checkForMatch = function(n){
+//   if (board[0]===board[1] && board[1]===board[2]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner = n;
+//     }, 3000);
+//     return;
+//   }else if (board[3]===board[4] && board[4]===board[5]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner =n;
+//     },3000);
+//     return;
+//   }else if (board[6]===board[7] && board[7]===board[8]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner =n;
+//     },3000);
+//     return;
+//   }else if (board[0]===board[3] && board[3]===board[6]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner =n;
+//     },3000);
+//     return;
+//   }else if(board[1]===board[4] && board[4]===board[7]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner =n;
+//     },3000);
+//     return;
+//   }else if(board[2]===board[5] && board[5]===board[8]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner =n;
+//     },3000);
+//     return;
+//   }else if(board[0]===board[4] && board[4]===board[8]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner =n;
+//     },3000);
+//     return;
+//   }else if(board[2]===board[4] && board[4]===board[6]){
+//     setTimeout(function(){
+//       gameWin(n);
+//       addWinnerScore(n);
+//       winner =n;
+//     },3000);
+//     return;
+//   };
+//   if(turnCount===9 && winner === ""){
+//     setTimeout(function(){
+//       gameDraw();
+//     },3000);
+//   }
+// };
 
 const gameWin = function(name){
   $('#placeWinnersName').text(`${name}`);
