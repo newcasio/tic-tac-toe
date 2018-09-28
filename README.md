@@ -6,11 +6,14 @@ Proejct 0 of WDI 29.
 
 The classic Tic-Tac-Toe or Noughts & Crosses.  Using a combination of HTML, CSS, vanilla Javascript and JQuery.
 
+![scoreboard](/images/scoreboard.png)
+![gameboard](/images/board.png)
+![winWindow](/images/winScreen.png)
+
+
 ### Issues
 
-If players click their turns before animations complete, animations get messed up.
-
-Explosion occurs before laser/fireball reaches square.
+Ugly!!
 
 
 ### Credits
