@@ -13,9 +13,6 @@ $(document).ready(function(){
   const explosion = '<img id="explosion" src="images/explosion1.gif"/>'
 
   $('.square').on('click', function(event){
-  //   // console.log(this);
-  //   // console.log((this.id));
-  //
     let clickX = event.pageX;     //click event, record co-ordinates of mouse click
     let clickY = event.pageY-180;
 
@@ -97,7 +94,7 @@ $(document).ready(function(){
     if($('#name2').val()===""){
       $('#name2').attr('value', 'Player 2');
     };
-    if($('#name1').val()===$('#name2').val()){
+    if($('#name1').val()===$('#name2').val()){    //cannot have same names
       alert("Usernames cannot be identical");
       location. reload(true);
       return;

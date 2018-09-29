@@ -5,9 +5,9 @@ https://newcasio.github.io/tic-tac-toe/
 
 ## Description
 
-Proejct 0 of WDI 29.
+Project 0 of WDI 29.
 
-The classic Tic-Tac-Toe or Noughts & Crosses.  Using a combination of HTML, CSS, vanilla Javascript and JQuery.
+A simple, but amusing take on the classic Tic-Tac-Toe or Noughts & Crosses game, using a combination of HTML, CSS, vanilla Javascript and JQuery.
 
 * Minutes of fun!!!
 
@@ -17,15 +17,17 @@ The classic Tic-Tac-Toe or Noughts & Crosses.  Using a combination of HTML, CSS,
 
 
 ![scoreboard](/images/scoreboard.png)
+
 ![gameboard](/images/board.png)
+
 ![winWindow](/images/winScreen.png)
 
 
 ### Issues
 
-Ugly!!
+Animations not precise.
 
 
 ### Credits
 
-Big credits to Luke and Linna.
+Big credits to Luke and Linna for code help, Jonno for finding the Ryu gif.
