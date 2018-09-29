@@ -42,14 +42,11 @@ const computersTurn = function(){
     count++;
     return;
   }
+
+
   let opponent='x';
-  // if(player==='x'){
-  //   opponent = 'computer';
-  // }else{
-  //   opponent = 'human'
-  // }
-  console.log(opponent);
-  const blocker = blockWin(opponent);
+  // console.log(opponent);
+  const blocker = blockWin(opponent);   //check to block before placing randomly
   if( blocker !== null ){
     board[blocker] = 'o';
     $(`#${blocker}`).text('O');
@@ -113,15 +110,15 @@ let blockWin = function( playerSymbol ){
     for(let i =0; i<line[j].length; i++){  //loop through internal array
       const position = currentLine[i];
       if (board[position] === position){   //eg check if board[0] === 0, not x or o --> freecell
-        lineTotal += 1;
-        vacant = board[position];
-      } else if( board[position]=== playerSymbol ){   //playerSymbol is the argument passed in
-        lineTotal += 2;
+        lineTotal += 1;                   //if empty add 1 to lineTotal
+        vacant = board[position];         //remember position of vacant square, will be a number from original array
+      } else if( board[position]=== playerSymbol ){   //playerSymbol is the argument passed in o first, then x
+        lineTotal += 2;     //if taken add 2 to lineTotal
       }
     }  // end looping through internal array in line array
-    if (lineTotal === 5){
+    if (lineTotal === 5){       //so 1 vacant(1 point)+ 2 taken (2*2 points)
       console.log('found 2 in a line!!!!');
-      return vacant;
+      return vacant;    //return that number/vacant
     }
     // console.log(j, playerSymbol, 'fail', lineTotal, currentLine);
   } //looping through line array
